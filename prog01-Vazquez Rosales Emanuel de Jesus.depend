@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1662063318 source:c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\main.cpp
+	<iostream>
+	"UserInterface.h"
+
+1661900131 c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\list.h
+	"Node.h"
+	"Student.h"
+	<string>
+	<fstream>
+	<iostream>
+
+1661896154 c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\node.h
+	"Student.h"
+
+1661888297 c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\student.h
+	<string>
+	<iostream>
+
+1661896152 source:c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\node.cpp
+	"Node.h"
+
+1661888398 source:c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\student.cpp
+	"Student.h"
+
+1662058047 source:c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\list.cpp
+	"List.h"
+	"Node.h"
+	<iomanip>
+
+1662063745 source:c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\userinterface.cpp
+	"UserInterface.h"
+	<iostream>
+	<string>
+
+1662043195 c:\users\user\onedrive - universidad de guadalajara\3er sem\ed2\prog01-vazquez rosales emanuel de jesus\userinterface.h
+	<iostream>
+	"List.h"
+
