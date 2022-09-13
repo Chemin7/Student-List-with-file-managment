@@ -21,6 +21,9 @@ void List::add(Student s) {
 
     myFile.open("file01.txt",ios::app);
 
+
+    //texto
+
     myFile<<aux->getStudent().getName();
     myFile<<"|";
     myFile<<aux->getStudent().getCode();
@@ -66,19 +69,23 @@ Node* List::getLastPos() {
 
 
 void List::retrive() {
+
+
     string name,degree,str_code,check;
     int code;
+    char ch;
     ifstream myFile;
-    myFile.open("file01.txt",ios::in);
+    myFile.open("file01.txt",ios::binary|ios::in);
 
-    if(!myFile.get()) {
+    myFile.seekg(0,ios::end);
+    if(myFile.tellg()==0) {
 
         myFile.close();
         return;
         }
     else {
-
-        while(myFile) {
+        myFile.seekg(0,ios::beg);
+        while(!myFile.eof()) {
 
             getline(myFile,name,'|');
 
