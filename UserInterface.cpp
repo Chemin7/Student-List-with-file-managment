@@ -11,12 +11,17 @@ void UserInterface::menu() {
 
     int opc;
 
+
+
+
     while(opc!=3) {
 
         cout<<"---------MENU--------\n"
             <<"1) Agregar un estudiante\n"
             <<"2) Mostrar\n"
             <<"3) Salir\n"
+            <<"4) Buscar estudiante\n"
+            <<"5) Eliminar\n"
             <<"Selecciona una opcion: ";
         cin>>opc;
 
@@ -25,19 +30,25 @@ void UserInterface::menu() {
         switch(opc) {
             case 1:
                 add();
-            break;
+                break;
             case 2:
                 display();
                 break;
             case 3:
                 break;
+            case 4:
+                searchSt();
+                break;
+            case 5:
+                deleteSt();
+                break;
 
 
-        }
+            }
         system("cls");
 
+        }
     }
-}
 
 void UserInterface::add() {
     string name,degree;
@@ -60,4 +71,21 @@ void UserInterface::add() {
 void UserInterface::display() {
     myList->display();
     system("pause");
+    }
+
+void UserInterface::searchSt() {
+    int code;
+    cout<<"Ingrese el codigo del estudiante a buscar: ";
+    cin>>code;
+
+    cout<<myList->searchStudent(code)->getStudent().getName();
+    system("pause");
+    }
+
+void UserInterface::deleteSt() {
+    int code;
+    cout<<"Ingrese el codigo del estudiante a eliminar: ";
+    cin>>code;
+
+    myList->deleteStudent(code);
     }

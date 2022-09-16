@@ -29,3 +29,8 @@ Node* Node::getNext()
 {
     return next;
 }
+/*
+bool Node::operator==( Node& n)
+{
+    return this->getStudent() == n.getStudent();
+}*/

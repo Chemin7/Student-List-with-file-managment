@@ -26,6 +26,8 @@ class Student
         int getCode();
         std::string getDegree();
 
+        bool operator == ( Student  &s) ;
+
 
 };
 

@@ -12,6 +12,8 @@ public:
     void menu();
     void add();
     void display();
+    void searchSt();
+    void deleteSt();
 
 
 };

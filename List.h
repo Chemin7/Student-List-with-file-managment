@@ -18,7 +18,13 @@ class List {
         void add(Student);
         void display();
         void retrive();
+        Node* searchStudent(int);
+        Node* getPredecessor(Node*);
+        void deleteStudent(int);
 
+        void replaceFile();
+
+        void cargar();
 
 
     };

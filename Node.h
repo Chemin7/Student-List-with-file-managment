@@ -19,7 +19,7 @@ class Node
         Student getStudent();
         Node* getNext();
 
-
+        //bool operator == (Node &);
 
 
 };

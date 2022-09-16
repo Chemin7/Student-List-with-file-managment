@@ -42,3 +42,7 @@ string Student::getDegree()
     return degree;
 }
 
+bool Student::operator==( Student & s)
+{
+    return this->getCode() == s.getCode();
+}

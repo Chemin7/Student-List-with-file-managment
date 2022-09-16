@@ -31,6 +31,7 @@ void List::add(Student s) {
     myFile<<aux->getStudent().getDegree();
     myFile<<"*";
 
+
     myFile.close();
 
     }
@@ -75,16 +76,19 @@ void List::retrive() {
     int code;
     char ch;
     ifstream myFile;
-    myFile.open("file01.txt",ios::binary|ios::in);
+    myFile.open("file01.txt");
 
     myFile.seekg(0,ios::end);
-    if(myFile.tellg()==0) {
+    int length=myFile.tellg();
+    myFile.seekg(0,ios::beg);
+
+    if(length == 0 ) {
 
         myFile.close();
         return;
         }
     else {
-        myFile.seekg(0,ios::beg);
+
         while(!myFile.eof()) {
 
             getline(myFile,name,'|');
@@ -99,11 +103,14 @@ void List::retrive() {
             Student s(name,code,degree);
             addNode(s);
 
-            if(myFile.get() == '\n')
+
+
+            if(myFile.tellg()== length)
                 break;
 
 
             }
+
         myFile.close();
         }
 
@@ -118,3 +125,112 @@ void List::addNode(Student s) {
     else
         last->setNext(aux);
     }
+
+Node* List::searchStudent(int code) {
+    Node* aux(head);
+    while(aux) {
+        if(aux->getStudent().getCode() == code )
+            return aux;
+        aux=aux->getNext();
+        }
+    return nullptr;
+    }
+
+void List::deleteStudent(int code ) {
+    Node* temp(searchStudent(code));
+
+
+
+    if(temp == head)
+        head = head->getNext();
+    else if(!temp) {
+        cout<<"Estudiante no encontrado"<<endl;
+        system("pause");
+        }
+    else {
+        Node* aux(getPredecessor(temp));
+        aux->setNext(temp->getNext());
+        }
+
+    delete temp;
+
+    replaceFile();
+
+
+
+    }
+
+Node* List::getPredecessor(Node* n) {
+    if(n==head)
+        return nullptr;
+    Node* aux(head);
+
+    while(aux != nullptr and aux->getNext() != n)
+        aux = aux->getNext();
+
+    return aux;
+
+    }
+
+void List::replaceFile() {
+    Node* aux(head);
+
+    fstream myFile;
+    myFile.open("file01.txt",ios::out);
+
+    while(aux) {
+        myFile<<aux->getStudent().getName();
+        myFile<<"|";
+        myFile<<aux->getStudent().getCode();
+        myFile<<"|";
+        myFile<<aux->getStudent().getDegree();
+        myFile<<"*";
+
+        aux=aux->getNext();
+        }
+    myFile.close();
+    }
+
+
+/*
+void Lista::cargar()
+{
+    ifstream archivo("file02.txt", ios::in | ios:: binary);
+    if(!archivo.is_open())
+    {
+        cout<< "Error al abrir el archivo"<<endl;
+        exit(1);
+    }
+
+    string name, address;
+    int age;
+
+    archivo.seekg(0,archivo.end);
+    int length=archivo.tellg();
+    archivo.seekg(0,archivo.beg);
+
+    char *buffer=new char[length];
+    archivo.read(buffer,length);
+
+    string registro, campo;
+    bool flag=false;
+
+    stringstream ss(buffer);
+
+    while(getline(ss,registro,'*') and ss.eofbit)
+    {
+        stringstream ss_reg(registro);
+        getline(ss_reg,campo,'|');
+        name=campo;
+        getline(ss_reg,campo,'|');
+        age=stoi(campo);
+        getline(ss_reg,campo,'|');
+        address=campo;
+
+        Persona p(name,age,address);
+        agregarNodo(p);
+    }
+
+
+}
+*/
