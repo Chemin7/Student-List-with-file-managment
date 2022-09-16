@@ -14,14 +14,14 @@ void UserInterface::menu() {
 
 
 
-    while(opc!=3) {
+    while(opc!=5) {
 
         cout<<"---------MENU--------\n"
             <<"1) Agregar un estudiante\n"
             <<"2) Mostrar\n"
-            <<"3) Salir\n"
+            <<"3) Eliminar\n"
             <<"4) Buscar estudiante\n"
-            <<"5) Eliminar\n"
+            <<"5) Salir\n"
             <<"Selecciona una opcion: ";
         cin>>opc;
 
@@ -35,14 +35,15 @@ void UserInterface::menu() {
                 display();
                 break;
             case 3:
+                deleteSt();
                 break;
             case 4:
                 searchSt();
                 break;
             case 5:
-                deleteSt();
                 break;
-
+            default:
+                cout<<"opcion invalida"<<endl;
 
             }
         system("cls");

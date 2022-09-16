@@ -39,6 +39,11 @@ void List::add(Student s) {
 void List::display() {
     Node* aux(head);
 
+    if(!aux){
+        cout<<"La Lista esta vacia..."<<endl;
+        return;
+    }
+
     cout<<left
         <<setw(20)<<"Nombre"
         <<setw(11)<<"|Codigo"
@@ -192,45 +197,3 @@ void List::replaceFile() {
     }
 
 
-/*
-void Lista::cargar()
-{
-    ifstream archivo("file02.txt", ios::in | ios:: binary);
-    if(!archivo.is_open())
-    {
-        cout<< "Error al abrir el archivo"<<endl;
-        exit(1);
-    }
-
-    string name, address;
-    int age;
-
-    archivo.seekg(0,archivo.end);
-    int length=archivo.tellg();
-    archivo.seekg(0,archivo.beg);
-
-    char *buffer=new char[length];
-    archivo.read(buffer,length);
-
-    string registro, campo;
-    bool flag=false;
-
-    stringstream ss(buffer);
-
-    while(getline(ss,registro,'*') and ss.eofbit)
-    {
-        stringstream ss_reg(registro);
-        getline(ss_reg,campo,'|');
-        name=campo;
-        getline(ss_reg,campo,'|');
-        age=stoi(campo);
-        getline(ss_reg,campo,'|');
-        address=campo;
-
-        Persona p(name,age,address);
-        agregarNodo(p);
-    }
-
-
-}
-*/
